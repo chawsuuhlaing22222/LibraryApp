@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.BookListByCategoryActivity">
+
+<com.google.android.material.appbar.AppBarLayout
+    android:id="@+id/appbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBackBooksByCategory"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginLeft="@dimen/margin_medium_2"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24"
+            app:tint="@color/colorSecondaryText"
+            android:layout_width="24dp"
+            android:layout_height="24dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCategoryNameBookListByCate"
+            android:textSize="@dimen/text_regular_2x"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_bold"
+            android:layout_alignTop="@id/ivBackBooksByCategory"
+          android:layout_toEndOf="@id/ivBackBooksByCategory"
+            android:text="Gone With The Wind"
+            android:layout_marginLeft="@dimen/margin_large_n"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+
+</com.google.android.material.appbar.AppBarLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBookListByCategory"
+        android:clipToPadding="false"
+        android:paddingRight="@dimen/margin_medium_2"
+        android:layout_below="@id/appbar"
+        android:layout_marginTop="@dimen/margin_large_n"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="@dimen/margin_card_medium"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/ivBookCoverImgInRecent"
+      android:background="@drawable/bg_book_cover"
+      android:outlineProvider="background"
+      android:clipToOutline="true"
+      app:srcCompat="@drawable/profile"
+      android:scaleType="centerCrop"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
+
+  <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/ivMore"
+      app:srcCompat="@drawable/ic_baseline_more_horiz_24"
+      android:scaleType="fitXY"
+      app:tint="@color/white"
+      android:layout_alignParentEnd="true"
+      android:layout_width="20dp"
+      android:layout_height="20dp"/>
+
+  <FrameLayout
+      android:id="@+id/flAudioIconRecent"
+      android:background="@drawable/bg_earphone"
+      android:layout_alignParentBottom="true"
+      android:layout_margin="5dp"
+      android:layout_width="24dp"
+      android:layout_height="24dp">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAudioIcon"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_headphones"
+        android:tint="@color/white"
+        android:layout_width="16dp"
+        android:layout_height="16dp"/>
+  </FrameLayout>
+
+
+  <FrameLayout
+      android:id="@+id/flSaveIconRecent"
+      android:layout_margin="5dp"
+      android:background="@drawable/bg_earphone"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentBottom="true"
+      android:layout_width="24dp"
+      android:layout_height="24dp">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSaveIcon"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_baseline_check_24"
+        android:tint="@color/white"
+        android:layout_width="16dp"
+        android:layout_height="16dp"/>
+  </FrameLayout>
+
+
+
+</RelativeLayout>

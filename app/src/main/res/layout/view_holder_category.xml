@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_medium"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chipCategoryNmae"
+        android:text="3 floor"
+        android:layout_margin="@dimen/margin_medium"
+        app:rippleColor="@color/teal_700"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"/>
+
+</RelativeLayout>
+
+<!--    chip.setChipBackgroundColorResource(R.color.colorAccent)-->

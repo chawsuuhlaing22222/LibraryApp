@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvShelveTitleInBooklistShelveDialog"
+        android:layout_marginTop="@dimen/margin_large_n"
+        android:text="My Favourite"
+        android:fontFamily="@font/inter_bold"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <View
+
+        android:id="@+id/viewSeparatorBooklistSheveDialog"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_below="@id/tvShelveTitleInBooklistShelveDialog"
+        android:background="@color/colorSecondaryText"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRenameShelf"
+        android:layout_below="@id/viewSeparatorBooklistSheveDialog"
+        android:text="Rename shelf"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:fontFamily="@font/inter_medium"
+        android:drawablePadding="@dimen/margin_large_n"
+        android:drawableTint="@color/colorSecondaryText"
+        android:drawableStart="@drawable/ic_baseline_edit_24"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDeleteShelf"
+        android:layout_below="@id/tvRenameShelf"
+        android:text="Delete shelf"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:fontFamily="@font/inter_medium"
+        android:drawablePadding="@dimen/margin_large_n"
+        android:drawableTint="@color/colorSecondaryText"
+        android:drawableStart="@drawable/ic_baseline_delete_24"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

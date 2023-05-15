@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/margin_medium_2"
+    android:elevation="@dimen/margin_medium"
+    android:background="@drawable/bg_search_bar"
+    android:layout_width="match_parent"
+     android:layout_height="50dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSearch"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_marginRight="@dimen/margin_medium_2"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/ic_baseline_search_white_24dp"
+        android:tint="@color/colorSecondaryText"
+        android:scaleType="centerCrop"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_22dp"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edtSearchBook"
+        android:textColor="@color/colorSecondaryText"
+        android:hint="@string/search_play_books"
+        android:textColorHint="@color/colorSecondaryText"
+        android:fontFamily="@font/inter"
+        android:layout_marginLeft="10dp"
+        android:background="@android:color/transparent"
+        android:layout_toEndOf="@id/ivSearch"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <com.padc.csh.libraryapp.customComponents.RoundedCornerImageView
+        android:id="@+id/ivLoginProfile"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="@dimen/margin_medium_2"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/profile"
+        android:scaleType="centerCrop"
+        app:cornerRadius="20dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+
+
+
+</RelativeLayout>

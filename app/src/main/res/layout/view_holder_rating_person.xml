@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.padc.csh.libraryapp.customComponents.RoundedCornerImageView
+        android:id="@+id/ivRatingProfile"
+        app:srcCompat="@drawable/profile"
+        android:scaleType="centerCrop"
+        app:cornerRadius="@dimen/dimen_25dp"
+        android:layout_width="@dimen/dimen_50dp"
+        android:layout_height="50dp"/>
+
+    <TextView
+        android:id="@+id/tvRatingPersonName"
+        android:layout_toEndOf="@id/ivRatingProfile"
+        android:layout_marginStart="@dimen/margin_large"
+        android:text="SteveJob af"
+        android:textSize="@dimen/text_regular_2x"
+        android:fontFamily="@font/inter_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/ratingvarInRatingPerson"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:numStars="5"
+        android:rating="5"
+        android:layout_below="@id/tvRatingPersonName"
+        android:layout_toEndOf="@id/ivRatingProfile"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvRatingPostDate"
+        android:layout_toEndOf="@id/ratingvarInRatingPerson"
+        android:layout_alignTop="@id/ratingvarInRatingPerson"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:text="5/3/2022"
+        android:textSize="@dimen/text_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvComment"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_alignStart="@id/tvRatingPersonName"
+        android:layout_below="@id/ratingvarInRatingPerson"
+        android:text="Interesting storyline for me,I have read this book twice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

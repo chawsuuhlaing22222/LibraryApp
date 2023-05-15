@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.padc.csh.libraryapp.viewpods.BookListViewPod xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:id="@+id/flCancelCategoryList"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@drawable/bg_btn_circle"
+        android:layout_width="40dp"
+        android:layout_height="40dp">
+        <ImageView
+            android:id="@+id/ivCancelCategoryList"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_close_24"
+            android:layout_width="@dimen/margin_large_n"
+            android:layout_height="@dimen/margin_large_n"/>
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCategoryList"
+        android:layout_toEndOf="@id/flCancelCategoryList"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSort"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_below="@id/rvCategoryList"
+        app:srcCompat="@drawable/ic_baseline_sort_24"
+        android:scaleType="centerCrop"
+        android:layout_width="24dp"
+        android:layout_height="24dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSortByRecent"
+        android:text="Sort by Recent"
+        android:layout_below="@id/rvCategoryList"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_toEndOf="@id/ivSort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivViewList"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginRight="@dimen/margin_large_n"
+        android:layout_below="@id/rvCategoryList"
+        app:srcCompat="@drawable/ic_baseline_view_list_24"
+        android:layout_alignParentEnd="true"
+        app:tint="@color/colorSecondaryText"
+        android:scaleType="centerCrop"
+        android:layout_width="24dp"
+        android:layout_height="24dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvYourBookListSmall"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:clipToPadding="false"
+        android:paddingRight="@dimen/margin_medium_2"
+        android:layout_below="@id/ivSort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvYourBookListLarge"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:clipToPadding="false"
+        android:paddingRight="@dimen/margin_medium_2"
+        android:layout_below="@id/ivSort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvYourBookListList"
+        android:visibility="gone"
+        android:clipToPadding="false"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:paddingRight="@dimen/margin_medium_2"
+        android:layout_below="@id/ivSort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</com.padc.csh.libraryapp.viewpods.BookListViewPod>

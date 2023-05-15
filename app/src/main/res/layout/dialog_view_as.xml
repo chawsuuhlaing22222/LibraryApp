@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_medium_2">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvViewAs"
+        android:text="View as"
+        android:fontFamily="@font/inter_bold"
+        android:layout_margin="@dimen/margin_large_n"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <View
+        android:id="@+id/viewLineSeparatorViewAsDialog"
+        android:background="@color/colorSecondaryText"
+        android:layout_below="@id/tvViewAs"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <RadioGroup
+        android:id="@+id/rgRadioButtons"
+        android:layout_marginLeft="@dimen/margin_large_n"
+        android:orientation="vertical"
+        android:layout_below="@id/viewLineSeparatorViewAsDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rbList"
+            android:text="List"
+            android:checked="true"
+            android:paddingLeft="@dimen/margin_medium_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/rbLargeGrid"
+            android:text="Large grid"
+            android:paddingLeft="@dimen/margin_medium_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/rbSmallGrid"
+            android:text="Small grid"
+            android:paddingLeft="@dimen/margin_medium_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+
+</RelativeLayout>

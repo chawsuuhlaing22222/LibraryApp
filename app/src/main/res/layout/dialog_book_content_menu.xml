@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_medium_2"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBookImgContentMenu"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginLeft="@dimen/margin_large_n"
+        app:srcCompat="@drawable/profile"
+        android:scaleType="centerCrop"
+        android:layout_width="100dp"
+        android:layout_height="120dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBookNameContentMenu"
+        android:layout_toEndOf="@id/ivBookImgContentMenu"
+        android:layout_alignTop="@id/ivBookImgContentMenu"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:fontFamily="@font/inter_bold"
+        android:text="Gone With The Wind"
+        android:textSize="@dimen/text_regular_2x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBookAuthorContentMenu"
+        android:text="John Nathum.Ebook"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="@dimen/text_small"
+        android:layout_below="@id/tvBookNameContentMenu"
+        android:layout_toEndOf="@id/ivBookImgContentMenu"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:id="@+id/viewLineSeparatorContentMenu"
+        android:background="@color/colorSecondaryText"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_below="@id/ivBookImgContentMenu"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivDownload"
+        android:layout_marginLeft="@dimen/margin_large_n"
+        android:layout_marginTop="@dimen/margin_large_n"
+        android:layout_below="@id/viewLineSeparatorContentMenu"
+        app:srcCompat="@drawable/ic_download"
+        app:tint="@color/colorSecondaryText"
+        android:scaleType="centerCrop"
+        android:layout_width="24dp"
+        android:layout_height="24dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDownlaod"
+        android:layout_below="@id/ivDownload"
+        android:text="Download"
+        android:fontFamily="@font/inter_medium"
+        android:layout_alignTop="@id/ivDownload"
+        android:layout_toEndOf="@id/ivDownload"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivDeleteFromlb"
+        app:tint="@color/colorSecondaryText"
+        android:layout_marginLeft="@dimen/margin_large_n"
+        android:layout_marginTop="@dimen/margin_large_n"
+        android:layout_below="@id/ivDownload"
+        app:srcCompat="@drawable/ic_baseline_delete_24"
+        android:scaleType="centerCrop"
+        android:layout_width="24dp"
+        android:layout_height="24dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDeleteFromLb"
+        android:layout_below="@id/ivDownload"
+        android:text="Delete from library"
+        android:fontFamily="@font/inter_medium"
+        android:layout_alignTop="@id/ivDeleteFromlb"
+        android:layout_toEndOf="@id/ivDeleteFromlb"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAddToShelve"
+        app:tint="@color/colorSecondaryText"
+        android:layout_marginLeft="@dimen/margin_large_n"
+        android:layout_marginTop="@dimen/margin_large_n"
+        android:layout_below="@id/ivDeleteFromlb"
+        app:srcCompat="@drawable/ic_baseline_add_24"
+        android:scaleType="centerCrop"
+        android:layout_width="24dp"
+        android:layout_height="24dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddToShelve"
+        android:layout_below="@id/ivDownload"
+        android:text="Add to shelve"
+        android:fontFamily="@font/inter_medium"
+        android:layout_alignTop="@id/ivAddToShelve"
+        android:layout_toEndOf="@id/ivDeleteFromlb"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivMarkAsRead"
+        app:tint="@color/colorSecondaryText"
+        android:layout_marginLeft="@dimen/margin_large_n"
+        android:layout_marginTop="@dimen/margin_large_n"
+        android:layout_below="@id/ivAddToShelve"
+        app:srcCompat="@drawable/ic_baseline_check_24"
+        android:scaleType="centerCrop"
+        android:layout_width="24dp"
+        android:layout_height="24dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMarkAsRead"
+        android:layout_below="@id/ivDownload"
+        android:text="Mark as read"
+        android:fontFamily="@font/inter_medium"
+        android:layout_alignTop="@id/ivMarkAsRead"
+        android:layout_toEndOf="@id/ivDeleteFromlb"
+        android:layout_marginLeft="@dimen/margin_medium_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>

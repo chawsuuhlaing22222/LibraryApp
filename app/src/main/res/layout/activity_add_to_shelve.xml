@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AddToShelveActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAddToShelve"
+        android:text="Add to shelves "
+        android:layout_margin="@dimen/margin_large_n"
+       android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/text_heading_1x"
+        android:fontFamily="@font/inter_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivCloseInAddToShelve"
+        app:srcCompat="@drawable/ic_baseline_close_24"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="@dimen/margin_medium_2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/margin_large_n"
+        android:layout_width="@dimen/margin_large_n"
+        android:layout_height="@dimen/margin_large_n"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvShelveList"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingLeft="@dimen/margin_medium_2"
+        android:clipToPadding="false"
+        android:layout_below="@id/tvAddToShelve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

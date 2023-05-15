@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.BookSearchListActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarSearchBook"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBackBookSearch"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_gravity="center_vertical|start"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edtSearchBookName"
+               android:layout_toEndOf="@id/ivBackBookSearch"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:hint="Search Book"
+                android:background="@android:color/transparent"
+                android:textColor="@color/colorSecondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCloseBookSearch"
+               android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                app:srcCompat="@drawable/ic_baseline_close_24"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+
+        </RelativeLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutSearchBook"
+        android:layout_below="@id/appbarSearchBook"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        app:tabBackground="@color/colorPrimary"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabSelectedTextColor="@color/colorAccent"
+        app:tabIndicatorHeight="2dp"
+        app:tabIndicatorFullWidth="false"
+        app:tabTextAppearance="@style/tabTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+      <com.google.android.material.tabs.TabItem
+          android:id="@+id/tabEbook"
+          android:text="Ebooks"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabAudioBook"
+            android:text="Audiobooks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.tabs.TabLayout>
+
+    <TextView
+        android:id="@+id/tvSearchResultsLabel"
+        android:layout_below="@id/tabLayoutSearchBook"
+        android:text="Results from Google Play"
+        android:textSize="@dimen/text_regular_2x"
+        android:fontFamily="@font/inter_bold"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearchBookList"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_below="@id/tvSearchResultsLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
