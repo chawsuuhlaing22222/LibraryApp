@@ -12,6 +12,8 @@ import com.padc.csh.libraryapp.R
 class CustomProgressLine @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
+    //size in pixel
+    private var size = 0
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var progress = 0
@@ -22,7 +24,6 @@ class CustomProgressLine @JvmOverloads constructor(
 
     init {
         paint.isAntiAlias = true
-        paint.strokeWidth = borderWidth
         paint.style = Paint.Style.STROKE
         paint.color = resources.getColor(R.color.colorSecondaryText, null)
 
@@ -54,14 +55,23 @@ class CustomProgressLine @JvmOverloads constructor(
 
         paint.style=Paint.Style.FILL_AND_STROKE
         paint.color=resources.getColor(R.color.colorSecondaryText, null)
-        paint.strokeWidth = 25f
+        paint.strokeWidth = 15f
         paint.strokeCap=Paint.Cap.ROUND
-        canvas?.drawLine(40f, 50f, 200f, 50f, paint);
+        canvas?.drawLine(40f, 30f, 700f, 30f, paint);
+
+        paint.style=Paint.Style.FILL_AND_STROKE
+        paint.color=resources.getColor(R.color.colorAccent, null)
+        paint.strokeWidth = 15f
+       var progressF =(progress.toFloat()/100)*width
+        paint.strokeCap=Paint.Cap.ROUND
+        canvas?.drawLine(40f, 30f, progressF, 30f, paint);
 
     }
 
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
-        super.onSizeChanged(w, h, oldw, oldh)
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        size = measuredWidth.coerceAtMost(measuredHeight)
+        setMeasuredDimension(size, size)
     }
 
 

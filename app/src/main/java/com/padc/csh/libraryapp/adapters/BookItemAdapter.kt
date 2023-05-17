@@ -12,18 +12,18 @@ import com.padc.csh.libraryapp.viewholders.BookItemViewHolder
 import kotlinx.android.synthetic.main.view_holder_book_item.view.*
 
 class BookItemAdapter(var delegate: BookDelegate) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    RecyclerView.Adapter<BookItemViewHolder>() {
 
     var itemList: List<BookVO> = listOf()
     private var largeFlag=false
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookItemViewHolder {
         var itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.view_holder_book_item, parent, false)
         return BookItemViewHolder(delegate, itemView)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BookItemViewHolder, position: Int) {
 
         var book = itemList.get(position)
         book.bookImageWidth?.let {

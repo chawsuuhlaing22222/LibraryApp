@@ -13,9 +13,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.gson.Gson
 import com.padc.csh.libraryapp.R
+import com.padc.csh.libraryapp.activities.AddToShelveActivity
 import com.padc.csh.libraryapp.activities.BookListByCategoryActivity
 import com.padc.csh.libraryapp.adapters.HomeVPAdapter
 import com.padc.csh.libraryapp.adapters.RecentBookBannerAdapter
@@ -23,6 +26,7 @@ import com.padc.csh.libraryapp.data.vos.BookVO
 import com.padc.csh.libraryapp.delegates.BookDelegate
 import com.padc.csh.libraryapp.mvp.presenters.HomePresenterImpl
 import com.padc.csh.libraryapp.mvp.views.HomeView
+import kotlinx.android.synthetic.main.dialog_book_content_menu.view.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.lang.Math.abs
 
@@ -59,8 +63,7 @@ class HomeFragment : Fragment(), HomeView {
     private fun setUpRecentBanner() {
         mRecentBookBannerAdapter = RecentBookBannerAdapter(mHomePresenter)
         viewPagerRecent.adapter = mRecentBookBannerAdapter
-        //viewPagerRecent.setPreviewBothSide(R.dimen.margin_large,R.dimen.margin_large)
-        //viewPagerRecent.currentItem=1
+
         viewPagerRecent.offscreenPageLimit = 3
         viewPagerRecent.clipToPadding = false
         viewPagerRecent.clipChildren = false
@@ -112,6 +115,11 @@ class HomeFragment : Fragment(), HomeView {
 
 
     override fun onShowRecentBookBanner(list: List<BookVO>) {
+        if(list.isEmpty()){
+            viewPagerRecent.visibility=View.GONE
+        }else{
+            viewPagerRecent.visibility=View.VISIBLE
+        }
         mRecentBookBannerAdapter.setNewData(list)
     }
 
@@ -122,6 +130,50 @@ class HomeFragment : Fragment(), HomeView {
 
     override fun showErrorMsg(errorMsg: String) {
         Toast.makeText(context, errorMsg, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showDialog(bookVO: BookVO) {
+        var dialog = context?.let { BottomSheetDialog(it) }
+        var dialogView =
+            LayoutInflater.from(context).inflate(R.layout.dialog_book_content_menu, null, false)
+
+        //set data
+        context?.let {
+            Glide.with(it).load(bookVO.bookImage).into(dialogView.ivBookImgContentMenu)
+        }
+        dialogView.tvBookNameContentMenu.text = bookVO.title
+        dialogView.tvBookAuthorContentMenu.text = bookVO.author
+
+        //check this book is in lib
+        var bookFromlib = mHomePresenter.getBookFromLib(bookVO)
+        if (bookFromlib == null) {
+            dialogView.tvDeleteFromLb.text = "Add To Library"
+            dialogView.ivDeleteFromlb.setImageResource(R.drawable.ic_baseline_add_24)
+        }
+
+        //action listener
+        //delete from lib
+        dialogView.tvDeleteFromLb.setOnClickListener {
+            if (bookVO.isInLibrary == true || bookFromlib != null) {
+                Toast.makeText(context, "remove from library", Toast.LENGTH_SHORT).show()
+                mHomePresenter.removeFromLibrary(bookVO)
+            } else {
+                Toast.makeText(context, "add to library", Toast.LENGTH_SHORT).show()
+                mHomePresenter.addToLibrary(bookVO)
+            }
+            dialog?.cancel()
+        }
+
+        //add to shelf
+        dialogView.tvAddToShelve.setOnClickListener {
+            var bookString= Gson().toJson(bookVO)
+            startActivity(context?.let { it1 -> AddToShelveActivity.newIntent(it1,bookString) })
+            dialog?.cancel()
+        }
+
+        dialog?.setContentView(dialogView)
+        dialog?.setCancelable(true)
+        dialog?.show()
     }
 
 }

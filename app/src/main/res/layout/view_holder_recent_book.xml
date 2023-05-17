@@ -17,13 +17,13 @@
       android:layout_height="match_parent"/>
 
   <androidx.appcompat.widget.AppCompatImageView
-      android:id="@+id/ivMore"
+      android:id="@+id/ivMoreRecent"
       app:srcCompat="@drawable/ic_baseline_more_horiz_24"
       android:scaleType="fitXY"
       app:tint="@color/white"
       android:layout_alignParentEnd="true"
-      android:layout_width="20dp"
-      android:layout_height="20dp"/>
+      android:layout_width="40dp"
+      android:layout_height="40dp"/>
 
   <FrameLayout
       android:id="@+id/flAudioIconRecent"

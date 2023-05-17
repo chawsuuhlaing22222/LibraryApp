@@ -6,4 +6,5 @@ interface HomeView:BaseView {
 
     fun onShowRecentBookBanner(list:List<BookVO>)
     fun onNavigateBookDetail()
+    fun showDialog(book:BookVO)
 }

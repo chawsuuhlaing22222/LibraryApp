@@ -21,11 +21,15 @@ class CategoryNameAdapter(var categoryDelegate: CategoryDelegate):RecyclerView.A
         var category = itemList.get(position)
         holder.itemView.chipCategoryNmae.text=category.name
         holder.itemView.chipCategoryNmae.setOnClickListener {
-            if(category.isSelected) {
+         /*   if(category.isSelected) {
                 categoryDelegate.onUnSelectCategory(category)
             }else{
                 categoryDelegate.onSelectCategory(category)
-            }
+            }*/ //for multi select
+
+            //now this is for single select
+            categoryDelegate.onSelectCategory(category)
+
         }
 
         if(category.isSelected){

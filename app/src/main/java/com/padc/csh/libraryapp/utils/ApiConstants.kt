@@ -13,6 +13,9 @@ const val API_GET_OVERVIEW="lists/overview.json"
 const val API_KEY="0U7qhEeaB3hne6603pVwQwcpGBROiWCO"
 const val API_KEY_PARAM="api-key"
 
+const val BASE_URL_GOOGLE="https://www.googleapis.com/books/v1/"
+const val END_POINT_GET_SEARCH="volumes"
+
 
 
 

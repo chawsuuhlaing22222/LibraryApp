@@ -36,10 +36,22 @@ class HomePresenterImpl : ViewModel(), HomePresenter {
     }
 
     override fun onMore(bookVO: BookVO) {
-
+         mHomeView?.showDialog(bookVO)
     }
 
     override fun onCategoryMore(categoryName: BookResponse.Results.Lists) {
 
+    }
+
+    override fun addToLibrary(bookVO: BookVO) {
+        mLibraryModel.addSingleBookToLibrary(bookVO)
+    }
+
+    fun getBookFromLib(book: BookVO):BookVO?{
+        return mLibraryModel.getBookFromLib(book.title)
+    }
+
+    override fun removeFromLibrary(bookVO: BookVO) {
+        mLibraryModel.removeFromLibrary(bookVO)
     }
 }

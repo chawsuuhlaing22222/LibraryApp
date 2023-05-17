@@ -7,4 +7,6 @@ import com.padc.csh.libraryapp.mvp.views.HomeView
 interface HomePresenter:BasePresenter,BookDelegate{
 
     fun onInitView(view: HomeView)
+    fun addToLibrary(bookVO: BookVO)
+    fun removeFromLibrary(bookVO: BookVO)
 }

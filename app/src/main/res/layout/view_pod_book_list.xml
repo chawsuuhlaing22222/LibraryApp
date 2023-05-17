@@ -7,6 +7,7 @@
     <FrameLayout
         android:id="@+id/flCancelCategoryList"
         android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium_2"
         android:background="@drawable/bg_btn_circle"
         android:layout_width="40dp"
         android:layout_height="40dp">
@@ -20,6 +21,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategoryList"
+        android:layout_marginStart="@dimen/margin_medium"
         android:layout_toEndOf="@id/flCancelCategoryList"
         android:layout_width="match_parent"
         android:layout_height="70dp"/>

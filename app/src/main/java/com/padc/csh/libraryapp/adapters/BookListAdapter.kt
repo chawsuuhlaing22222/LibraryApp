@@ -13,15 +13,15 @@ import com.padc.csh.libraryapp.network.responses.BookResponse
 import com.padc.csh.libraryapp.viewholders.BookListViewHolder
 import kotlinx.android.synthetic.main.view_holder_book_list.view.*
 
-class BookListAdapter(var delegate: BookDelegate): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class BookListAdapter(var delegate: BookDelegate): RecyclerView.Adapter<BookListViewHolder>() {
 
    var itemList:List<BookResponse.Results.Lists> = listOf()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookListViewHolder{
        var itemView=LayoutInflater.from(parent.context).inflate(R.layout.view_holder_book_list,parent,false)
         return BookListViewHolder(delegate,itemView)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder:BookListViewHolder, position: Int) {
 
         var list=itemList.get(position)
         holder.itemView.tvCategoryName.text=list.list_name

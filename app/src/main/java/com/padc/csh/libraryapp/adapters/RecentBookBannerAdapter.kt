@@ -37,6 +37,10 @@ class RecentBookBannerAdapter(private val delegate: BookDelegate): RecyclerView.
         holder.itemView.setOnClickListener {
            delegate.onTapBook(book)
         }
+
+        holder.itemView.ivMoreRecent.setOnClickListener {
+            delegate.onMore(book)
+        }
     }
 
     override fun getItemCount(): Int {

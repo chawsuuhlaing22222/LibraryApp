@@ -26,13 +26,13 @@ class ViewAsListAdapter(var delegate: BookDelegate):RecyclerView.Adapter<Recycle
         Glide.with(holder.itemView.context).load(book.bookImage).into(holder.itemView.ivBookCoverImgViewAsList)
         holder.itemView.tvAuthorViewAsList.text=book.author
         holder.itemView.tvBookNameViewAsList.text=book.title
-        book.bookImageHeight?.let {
-            holder.itemView.ivBookCoverImgViewAsList.layoutParams.height =it
+       /* if(book.bookImageHeight!=0 && book.bookImageHeight!=null) {
+            holder.itemView.ivBookCoverImgViewAsList.layoutParams.height = book.bookImageHeight!!
         }
 
-        book.bookImageWidth?.let {
-            holder.itemView.ivBookCoverImgViewAsList.layoutParams.width =it
-        }
+        if(book.bookImageWidth!=null && book.bookImageWidth!=0) {
+            holder.itemView.ivBookCoverImgViewAsList.layoutParams.width = book.bookImageWidth!!
+        }*/
 
 
 
@@ -45,7 +45,11 @@ class ViewAsListAdapter(var delegate: BookDelegate):RecyclerView.Adapter<Recycle
         }
 
         holder.itemView.ivMoreViewAsList.setOnClickListener {
-           // delegate.onMore(BookVO(("")))
+           delegate.onMore(book)
+        }
+
+        holder.itemView.flBookCover.setOnClickListener {
+            delegate.onTapBook(book)
         }
 
     }

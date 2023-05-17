@@ -38,6 +38,7 @@ class ShelfPresenterImpl:ViewModel(),ShelfPresenter {
         selectedShelfList.forEach {
             var shelfBookList=it.shelfBookListVO
             it.shelfBookListVO?.bookList?.add(bookVO)
+            it.img=bookVO.bookImage
             mLibraryModel?.updateShelf(it)
         }
         selectedShelfList= mutableListOf()

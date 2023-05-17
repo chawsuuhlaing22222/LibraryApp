@@ -48,6 +48,7 @@ class BookListViewPod @JvmOverloads constructor(
         rvCategoryList.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         categoryNameAdapter.setItemList(categoryVoList)
+       // rvCategoryList.setEmptyView(flCancelCategoryList)
     }
 
     private fun addItemDecoration() {
