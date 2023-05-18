@@ -50,13 +50,14 @@
 
     <com.padc.csh.libraryapp.customComponents.CustomProgressLine
         android:id="@+id/progessLine5"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="19dp"
+        android:layout_alignParentEnd="true"
         android:layout_gravity="center"
         android:layout_marginStart="13dp"
         android:layout_marginEnd="@dimen/margin_medium_2"
         android:layout_toEndOf="@id/tvProgess5"
-        app:progress="30" />
+        app:progress="50" />
 
 
 
@@ -73,7 +74,8 @@
         android:id="@+id/progessLine4"
         android:layout_toEndOf="@id/tvProgess4"
         android:layout_alignTop="@id/tvProgess4"
-        app:progress="30"
+        app:progress="40"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="13dp"
         android:layout_marginEnd="@dimen/margin_medium_2"
         android:layout_width="wrap_content"
@@ -95,6 +97,7 @@
         android:layout_toEndOf="@id/tvProgess3"
         android:layout_alignTop="@id/tvProgess3"
         app:progress="30"
+        android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
         android:layout_height="20dp"/>
 
@@ -113,7 +116,7 @@
         android:layout_marginEnd="@dimen/margin_medium_2"
         android:layout_toEndOf="@id/tvProgess2"
         android:layout_alignTop="@id/tvProgess2"
-        app:progress="30"
+        app:progress="20"
         android:layout_alignParentEnd="true"
         android:layout_width="wrap_content"
         android:layout_height="20dp"/>
@@ -134,7 +137,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@id/tvProgess1"
         android:layout_toEndOf="@id/tvProgess1"
-        app:progress="30"
+        app:progress="10"
         android:layout_width="wrap_content"
         android:layout_height="20dp"/>
 

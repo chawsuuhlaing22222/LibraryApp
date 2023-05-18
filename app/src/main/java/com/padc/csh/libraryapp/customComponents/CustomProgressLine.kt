@@ -41,23 +41,12 @@ class CustomProgressLine @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        /*paint.style=Paint.Style.FILL_AND_STROKE
-        paint.color=resources.getColor(R.color.colorSecondaryText, null)
-        paint.strokeWidth = borderWidth/2
-        paint.strokeCap=Paint.Cap.ROUND
-        canvas?.drawLine(0f,borderWidth,width.toFloat(),borderWidth,paint)
-
-        var progressF=(progress.toFloat()/100)*width
-        paint.color=resources.getColor(R.color.colorAccent, null)
-        paint.strokeCap=Paint.Cap.ROUND
-       paint.style=Paint.Style.FILL_AND_STROKE
-        canvas?.drawLine(0f,borderWidth,progressF,borderWidth,paint)*/
 
         paint.style=Paint.Style.FILL_AND_STROKE
         paint.color=resources.getColor(R.color.colorSecondaryText, null)
         paint.strokeWidth = 15f
         paint.strokeCap=Paint.Cap.ROUND
-        canvas?.drawLine(40f, 30f, 700f, 30f, paint);
+        canvas?.drawLine(40f, 30f, 500f, 30f, paint);
 
         paint.style=Paint.Style.FILL_AND_STROKE
         paint.color=resources.getColor(R.color.colorAccent, null)
