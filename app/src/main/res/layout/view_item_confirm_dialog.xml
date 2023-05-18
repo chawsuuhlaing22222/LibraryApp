@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_gravity="center"
+        android:id="@+id/rlConfirmDialog"
+        android:background="@drawable/bg_logout_dialog"
+        android:padding="@dimen/margin_medium_3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvLogout"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/inter_bold"
+            android:text="Are you sure?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnYes"
+          android:background="@drawable/bg_logout_dialog"
+            android:layout_below="@+id/tvLogout"
+            app:cornerRadius="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:textColor="@color/colorSecondaryText"
+            android:text="Yes"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNo"
+            android:layout_below="@+id/tvLogout"
+           android:background="@drawable/bg_logout_dialog"
+            android:layout_alignParentEnd="true"
+            app:cornerRadius="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:textColor="@color/colorSecondaryText"
+            android:text="No"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+

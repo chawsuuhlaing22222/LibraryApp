@@ -9,7 +9,7 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
 
-public class Commons {
+public class JavaCommons {
 
     public static Matcher<View> withViewAtPosition(final int position, final Matcher<View> itemMatcher) {
         return new BoundedMatcher<View, RecyclerView>(RecyclerView.class) {
@@ -27,8 +27,9 @@ public class Commons {
     }
 
 
-
-
 }
+
+
+
 
 

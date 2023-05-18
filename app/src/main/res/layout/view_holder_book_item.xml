@@ -21,7 +21,7 @@
             android:layout_height="match_parent"/>
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivMore"
+        android:id="@+id/ivMoreInBookItem"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="top|end"

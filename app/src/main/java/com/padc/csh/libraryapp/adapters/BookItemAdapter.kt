@@ -54,7 +54,7 @@ class BookItemAdapter(var delegate: BookDelegate) :
         holder.itemView.flSaveIcon.visibility = View.GONE
 
 
-        holder.itemView.ivMore.setOnClickListener{
+        holder.itemView.ivMoreInBookItem.setOnClickListener{
             delegate.onMore(book)
         }
 

@@ -1,27 +1,15 @@
 package com.padc.csh.libraryapp
 
 import android.content.Intent
-import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
-import androidx.test.espresso.contrib.RecyclerViewActions.scrollToPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.rule.ActivityTestRule
 import com.padc.csh.libraryapp.activities.MainActivity
 import com.padc.csh.libraryapp.utils.*
-import com.padc.csh.libraryapp.utils.Commons.withViewAtPosition
-import com.padc.csh.libraryapp.viewholders.BookItemViewHolder
-import com.padc.csh.libraryapp.viewholders.BookListViewHolder
-import com.zg.burgerjoint.uitests.utils.first
 import kotlinx.android.synthetic.main.fragment_ebook.*
-import kotlinx.coroutines.selects.select
 import org.hamcrest.Matchers.allOf
 import org.junit.Before
 import org.junit.FixMethodOrder

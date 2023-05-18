@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import com.padc.csh.libraryapp.R
@@ -84,6 +85,8 @@ class YourBookFragment : Fragment(),YourBookView {
             bookListViewPod.resetCategory()
             yourBookPresenter.resetCategoryList()
         }
+
+
     }
 
     private fun showDialogViewAs(context: Context?,view:String){
@@ -151,9 +154,22 @@ class YourBookFragment : Fragment(),YourBookView {
         var dialog= context?.let { BottomSheetDialog(it) }
         var dialogView= LayoutInflater.from(context).inflate(R.layout.dialog_book_content_menu,null,false)
 
+        //set data
+        context?.let {
+            Glide.with(it).load(bookVO.bookImage).into(dialogView.ivBookImgContentMenu)
+        }
+        dialogView.tvBookNameContentMenu.text = bookVO.title
+        dialogView.tvBookAuthorContentMenu.text = bookVO.author
+
         dialogView.ivAddToShelve.setOnClickListener {
             var bookString=Gson().toJson(bookVO)
             startActivity(context?.let { it1 -> AddToShelveActivity.newIntent(it1,bookString) })
+            dialog?.cancel()
+        }
+
+        dialogView.ivDeleteFromlb.setOnClickListener {
+            yourBookPresenter.onRemoveFromLib(bookVO)
+            Toast.makeText(context, "remove from library", Toast.LENGTH_SHORT).show()
             dialog?.cancel()
         }
         dialog?.setContentView(dialogView)

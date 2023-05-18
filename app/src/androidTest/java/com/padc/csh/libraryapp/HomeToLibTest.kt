@@ -329,7 +329,6 @@ class HomeToLibTest {
             .check(matches(isDisplayed()))
 
 
-        //click category chip
 
 
 

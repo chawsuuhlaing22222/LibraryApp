@@ -1,5 +1,6 @@
 package com.padc.csh.libraryapp.activities
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -7,9 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
@@ -27,14 +30,17 @@ import com.padc.csh.libraryapp.mvp.presenters.ShelfBookListPresenterImpl
 import com.padc.csh.libraryapp.mvp.presenters.YourBookPresenterImpl
 import com.padc.csh.libraryapp.mvp.views.ShelfBookListView
 import com.padc.csh.libraryapp.network.responses.BookResponse
+import com.padc.csh.libraryapp.utils.showDialogViewAs
 import com.padc.csh.libraryapp.utils.showSortByDialog
 import com.padc.csh.libraryapp.viewpods.BookListViewPod
 import kotlinx.android.synthetic.main.activity_create_shelf.*
 import kotlinx.android.synthetic.main.activity_shelve_book_list.*
+import kotlinx.android.synthetic.main.activity_shelve_book_list.view.*
 import kotlinx.android.synthetic.main.dialog_book_content_menu.view.*
 import kotlinx.android.synthetic.main.dialog_more_for_booklist_shelve.view.*
 import kotlinx.android.synthetic.main.dialog_view_as.view.*
 import kotlinx.android.synthetic.main.fragment_your_book.*
+import kotlinx.android.synthetic.main.view_item_confirm_dialog.view.*
 import kotlinx.android.synthetic.main.view_pod_book_list.view.*
 
 class ShelveBookListActivity : AppCompatActivity(),ShelfBookListView{
@@ -77,7 +83,7 @@ class ShelveBookListActivity : AppCompatActivity(),ShelfBookListView{
 
         //bind data
         tvShelveTitle.setText(shelveVO.name)
-        tvBookCountInShelveBooklist.text=shelfBookList?.size.toString()
+        tvBookCountInShelveBooklist.text="${shelfBookList?.size.toString()} Books"
         bookListViewPod.setUpData(shelfBookList)
 
     }
@@ -89,17 +95,20 @@ class ShelveBookListActivity : AppCompatActivity(),ShelfBookListView{
 
     private fun setUpListener() {
 
-        tvShelveTitle.setOnEditorActionListener(object : TextView.OnEditorActionListener {
+        edtShelveTitle.setOnEditorActionListener(object : TextView.OnEditorActionListener {
             override fun onEditorAction(p0: TextView?, actionId: Int, event: KeyEvent?): Boolean {
                 if(actionId== EditorInfo.IME_ACTION_DONE){
-                    var shelf=ShelveVO(tvShelveTitle.text.toString(),shelveVO.img,shelveVO.id, shelveVO.shelfBookListVO
+                    var shelf=ShelveVO(edtShelveTitle.text.toString(),shelveVO.img,shelveVO.id, shelveVO.shelfBookListVO
                     )
                     mShelfBookListPresenter.updateShelf(shelf)
+                    edtShelveTitle.visibility = View.GONE
+                    tvShelveTitle.visibility = View.VISIBLE
                     finish()
                 }
                 return false;
             }
         })
+
         ivMoreShelveBooklist.setOnClickListener {
             showShelfDialog()
         }
@@ -180,7 +189,7 @@ class ShelveBookListActivity : AppCompatActivity(),ShelfBookListView{
     }
 
     override fun onShowBookList(bookList: List<BookVO>) {
-
+        bookListViewPod.setUpData(shelfBookList)
     }
 
     override fun onShowCategoryList(bookList: List<BookVO>, categoryList: List<CategoryVO>) {
@@ -190,8 +199,6 @@ class ShelveBookListActivity : AppCompatActivity(),ShelfBookListView{
     override fun showErrorMsg(errorMsg: String) {
 
     }
-
-
 
     fun showDialogBookContentMenu(context: Context?){
         var dialog= context?.let { BottomSheetDialog(it) }
@@ -211,18 +218,34 @@ class ShelveBookListActivity : AppCompatActivity(),ShelfBookListView{
         var dialogView= LayoutInflater.from(this).inflate(R.layout.dialog_more_for_booklist_shelve,null,false)
         dialogView.tvRenameShelf.setOnClickListener {
            // startActivity(Intent(this,AddToShelveActivity::class.java))
-            tvShelveTitle.isFocusable=true
-            tvShelveTitle.requestFocus()
-            tvShelveTitle.setSelection(0,tvShelveTitle.length())
-            tvShelveTitle.setBackgroundColor(resources.getColor(R.color.white,null))
+            edtShelveTitle.isFocusable=true
+            edtShelveTitle.requestFocus()
+
+            tvShelveTitle.visibility =View.GONE
+            edtShelveTitle.visibility =View.VISIBLE
+            edtShelveTitle.setText(tvShelveTitle.text.toString())
+            //tvShelveTitle.setBackgroundColor(resources.getColor(R.color.white,null))
             dialog.cancel()
 
         }
 
         dialogView.tvDeleteShelf.setOnClickListener {
-            mShelfBookListPresenter.deleteShelf(shelveVO)
-            finish()
-            dialog.cancel()
+
+            var dialog= Dialog(this)
+            var view=LayoutInflater.from(this).inflate(R.layout.view_item_confirm_dialog,null)
+            dialog?.setContentView(view)
+
+            view.btnYes.setOnClickListener {
+                mShelfBookListPresenter.deleteShelf(shelveVO)
+                finish()
+                dialog.cancel()
+            }
+
+            view.btnNo.setOnClickListener {
+                dialog?.dismiss()
+            }
+            dialog?.show()
+
         }
         dialog?.setContentView(dialogView)
         dialog?.setCancelable(true)

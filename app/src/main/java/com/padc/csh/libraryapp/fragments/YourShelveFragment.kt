@@ -51,6 +51,7 @@ class YourShelveFragment : Fragment() ,ShelfView{
     }
 
     private fun setUpListener() {
+
         fbtnCreateShelve.setOnClickListener {
             startActivity(Intent(context,CreateShelfActivity::class.java))
         }

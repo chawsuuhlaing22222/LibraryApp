@@ -70,6 +70,9 @@ class YourBookPresenterImpl:ViewModel(),YourBookPresenter {
 
     }
 
+    override fun onRemoveFromLib(book: BookVO) {
+        mLibraryModel.removeFromLibrary(book)
+    }
 
 
     override fun onUiReady(owner: LifecycleOwner) {
@@ -84,7 +87,7 @@ class YourBookPresenterImpl:ViewModel(),YourBookPresenter {
     }
 
     override fun onMore(bookVO: BookVO) {
-
+        mYourBookView?.onShowBookContentMenu(bookVO)
     }
 
     override fun onCategoryMore(categoryName: BookResponse.Results.Lists) {

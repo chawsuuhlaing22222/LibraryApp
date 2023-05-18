@@ -15,21 +15,20 @@
 
     <TextView
         android:id="@+id/tvNoFile"
-        android:text="No Shelves"
-        android:layout_marginTop="@dimen/margin_xxlarge"
-        android:textSize="@dimen/text_regular_3x"
-        android:fontFamily="@font/inter_bold"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/ivEmptyShelve"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivEmptyShelve"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="@color/black"
+        android:text="No Shelves"
+        android:textSize="@dimen/text_regular_3x" />
 
 
     <TextView
         android:id="@+id/tvNoFileDescription"
-        android:layout_marginTop="@dimen/margin_medium"
         android:text="Create shelves to match the way you think"
-
         android:layout_centerInParent="true"
         android:layout_below="@id/tvNoFile"
         android:layout_width="200dp"
