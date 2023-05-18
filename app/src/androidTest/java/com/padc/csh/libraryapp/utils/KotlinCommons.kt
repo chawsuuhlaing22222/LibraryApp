@@ -12,20 +12,28 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 import java.util.concurrent.atomic.AtomicReference
 
+var sec_category="Middle Grade Paperback Monthly"
+var sec_book_name="THE ONE AND ONLY IVAN"
+var sec_book_author="Katherine Applegate."
+
+var third_category="Young Adult Paperback Monthly"
+var third_book_name="IF HE HAD BEEN WITH ME"
+var third_book_author="Laura Nowlin"
 
 //constants
 const val FIRST_CATEGORY_NAME="Combined Print and E-Book Fiction"
-const val SECOND_CATEGORY_NAME="Picture Books" //pos 8
-const val THIRD_CATEGORY_NAME="Series Books"
+const val SECOND_CATEGORY_NAME= "Middle Grade Paperback Monthly"
+const val THIRD_CATEGORY_NAME= "Young Adult Paperback Monthly"
 
 const val FIRST_BOOK_NAME="HAPPY PLACE"
 const val FIRST_BOOK_AUTHOR="Emily Henry"
 
-const val SECOND_BOOK_NAME="BECAUSE I HAD A TEACHER"
-const val SECOND_BOOK_AUTHOR="Kobi Yamada."
+const val SECOND_BOOK_NAME="THE ONE AND ONLY IVAN"
+const val SECOND_BOOK_AUTHOR="Katherine Applegate."
 
-const val THIRD_BOOK_NAME="THE ONE AND ONLY"
-const val THIRD_BOOK_AUTHOR="Katherine Applegate"
+const val THIRD_BOOK_NAME="IF HE HAD BEEN WITH ME"
+const val THIRD_BOOK_AUTHOR="Laura Nowlin"
+
 
 const val SHELF_NAME="my favourites"
 const val UPDATE_SHELF_NAME="My Fav Books"

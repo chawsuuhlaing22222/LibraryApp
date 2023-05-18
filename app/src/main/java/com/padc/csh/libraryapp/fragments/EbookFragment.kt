@@ -79,6 +79,10 @@ class EbookFragment : Fragment(), EbookView {
 
 
     override fun onShowEbookList(list: List<BookResponse.Results.Lists>) {
+        list.sortedBy { lists -> lists.list_name }
+        list.forEach {
+            it.books.sortedBy { booklist->booklist.title }
+        }
         mBookListAdapter.setUpBookList(list)
     }
 

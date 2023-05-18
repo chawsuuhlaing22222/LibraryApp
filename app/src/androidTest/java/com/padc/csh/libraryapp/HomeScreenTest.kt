@@ -1,22 +1,34 @@
 package com.padc.csh.libraryapp
 
+
 import android.content.Intent
+import android.content.res.Resources
+import android.view.View
+import androidx.core.widget.NestedScrollView
+import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions.scrollToPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.rule.ActivityTestRule
 import com.padc.csh.libraryapp.activities.MainActivity
 import com.padc.csh.libraryapp.utils.*
 import kotlinx.android.synthetic.main.fragment_ebook.*
+import org.hamcrest.Description
+import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.not
+import org.hamcrest.TypeSafeMatcher
 import org.junit.Before
 import org.junit.FixMethodOrder
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
+
 
 @RunWith(AndroidJUnit4ClassRunner::class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -31,202 +43,112 @@ class HomeScreenTest {
     }
 
     @Test
-    fun a_check(){
-        //onView(withId(R.id.vpHome)).perform(swipeLeft()) // or swipeRight()
-        //onView(withId(R.id.vpHome)).perform(swipeLeft())
-        val viewPagerMatcher = allOf(withId(R.id.vpHome), isDisplayed())
-       // onView(withId( R.id.nav_home)).perform(click())
-
-        //Thread.sleep(2000)
-       // onView(allOf(withId(R.id.rvEbooks), isDescendantOfA(viewPagerMatcher)))
-          //  .check(matches(isDisplayed()))
-
-      /*  onView(allOf(withId(R.id.rvBookList) ,
-            isDescendantOfA( allOf(withId(R.id.rvEbooks), isDescendantOfA(viewPagerMatcher)))))
-            .check(matches(isDisplayed()))*/
-
-
-       /* onView(allOf(withId(R.id.rvEbooks), isDescendantOfA(viewPagerMatcher)))
-            .perform(scrollToPosition<RecyclerView.ViewHolder>(8))*/
-
-     /*    onView(allOf(withId(R.id.rvEbooks), isDescendantOfA(viewPagerMatcher)))
-          .check(matches(isDisplayed()))*/
-        Thread.sleep(2000)
-     /*   onView(withId(R.id.homeFragment))
-            .perform(swipeUp())
-        onView(withId(R.id.homeFragment))
-            .perform(swipeUp())
-*/
-        onView(withId(R.id.homeFragment)).perform(repeatedlyUntil(swipeUp(),
-            hasDescendant(withText(SECOND_CATEGORY_NAME)),
-            2), click()
+    fun scrollToPos(){
+      var v=  onView(
+            allOf(
+                isDescendantOfA(
+                    allOf(
+                        withId(R.id.upperChildLayout), hasDescendant(
+                            withText(
+                                FIRST_CATEGORY_NAME
+                            )
+                        )
+                    )
+                ),
+                isDescendantOfA(withId(R.id.rvBookList)), withId(R.id.tvBookName), withText(
+                    FIRST_BOOK_NAME
+                )
+            )
         )
 
-         onView(allOf(
-        isDescendantOfA( allOf(withId(R.id.upperChildLayout), hasDescendant(withText(
-            SECOND_CATEGORY_NAME)))),
-        isDescendantOfA(withId(R.id.rvBookList)), withId(R.id.tvBookName), withText(
-        SECOND_BOOK_NAME)
-        )).check(matches(isDisplayed()))
+        // Locate the NestedScrollView
+        // Locate the NestedScrollView
+/*        onView(
+            allOf(
+                isAssignableFrom(NestedScrollView::class.java),
+                isDescendantOfA(withId(R.id.homeFragment))
+            )
+        ).perform(scrollTo())*/
 
-       /* onView(withId(R.id.homeFragment))
-            .perform(swipeUp())
+// Scroll to a specific item in the RecyclerView
 
-        Thread.sleep(100)
-
-        onView(allOf(
-            isDescendantOfA( allOf(withId(R.id.rvEbooks), hasDescendant(withText(
-                "Combined Print and E-Book Nonfiction")))),
-            isDescendantOfA(withId(R.id.rvBookList)), withId(R.id.tvBookName), withText(
-                "THE WAGER")
-        )).check(matches( isDisplayed()))*/
-            //perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(8))
-
+// Scroll to a specific item in the RecyclerView
+        onView(
+            allOf(
+                withId(R.id.rvEbooks),
+                isDescendantOfA(withId(R.id.homeFragment))
+            )
+        ).perform(scrollToPosition<RecyclerView.ViewHolder>(4))
 
     }
 
-   // @Test
-  /*  fun b_checkViewRecWithBookVisiblity(){
+    var sec_category="Middle Grade Paperback Monthly"
+    var sec_book_name="THE ONE AND ONLY IVAN"
+    var sec_book_author="Katherine Applegate."
 
-        //onView(withId(R.id.rvEbooks)).check(matches(isDisplayed()))
-       *//* onView(withRecyclerView(R.id.rvEbooks).atPosition(0)).check(
-            onView(R.id.tvCategoryName).check(matches(withText("")))
-        )
-        }*//*
+    var third_category="Young Adult Paperback Monthly"
+    var third_book_name="IF HE HAD BEEN WITH ME"
+    var third_book_author="Laura Nowlin"
+  @Test
+    fun test(){
 
-        //onView(withId(R.id.homeFragment)).check(matches(isDisplayed()))
+        Thread.sleep(1000)
+      onView(withId(R.id.homeFragment)).perform(swipeUp())
+      onView(withId(R.id.homeFragment)).perform(swipeUp())
+      onView(withId(R.id.homeFragment)).perform(swipeUp())
+      onView(withId(R.id.homeFragment)).perform(swipeUp())
+      onView(withId(R.id.homeFragment)).perform(swipeUp())
+      onView(withId(R.id.homeFragment)).perform(swipeUp())
+      onView(withId(R.id.homeFragment)).perform(swipeUp())
+      onView(withId(R.id.homeFragment)).perform(swipeUp())
+      onView(withId(R.id.homeFragment)).perform(swipeUp())
 
-        *//*onView(withId(R.id.rvEbooks))
-            .check(matches(
-                withViewAtPosition
-                (0, hasDescendant(allOf(
-                    withId(R.id.tvCategoryName), withText(FIRST_CATEGORY_NAME)
-                )
-            ))))*//*
-        Thread.sleep(2000)
-        onView(withId(R.id.rvEbooks))
-            .check(matches(
-                withViewAtPosition
-                    (0, hasDescendant(allOf(
-                    withId(R.id.rvBookList), isDisplayed()
-                )
-                ))))
+      var v=  onView(
+          allOf(
+              isDescendantOfA(
+                  allOf(
+                      withId(R.id.upperChildLayout), hasDescendant(
+                          withText(
+                              sec_category
+                          )
+                      )
+                  )
+              ),
+              isDescendantOfA(withId(R.id.rvBookList)), withId(R.id.tvBookName), withText(
+                  sec_book_name
+              )
+          )
+      )
 
-        //for first book visibility //this is correct
-      *//*  onView(withId(R.id.rvEbooks)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(0))
-        onView(allOf(
-            isDescendantOfA( allOf(withId(R.id.upperChildLayout), hasDescendant(withText(
-                FIRST_CATEGORY_NAME)))),
-            isDescendantOfA(withId(R.id.rvBookList)), withId(R.id.tvBookName), withText(
-                FIRST_BOOK_NAME)
-        )).perform(click())*//*
+      v.check(matches(isDisplayed()))
+      v.perform(click())
+      onView(withId(R.id.ivBackBookDetail)).perform(click())
 
-        onView(allOf( withId(R.id.rvEbooks), withParent(allOf( withId(R.id.frgEbook),
-            isDescendantOfA(withId(R.id.vpHome))
-        )))).perform(RecyclerViewActions.scrollToPosition<BookListViewHolder>(8))
+Thread.sleep(1000)
 
-        Thread.sleep(9000)
-       *//* onView(allOf(
-            isDescendantOfA( allOf(withId(R.id.upperChildLayout), hasDescendant(withText(
-                SECOND_CATEGORY_NAME)))),
-            isDescendantOfA(withId(R.id.rvBookList)), withId(R.id.tvBookName), withText(
-                SECOND_BOOK_NAME)
-        )).perform(click())*//*
-       *//* //withId(R.id.rvBookList)
-        onView(allOf( withId(R.id.rlItemView), hasDescendant(withText(FIRST_BOOK_NAME)), withParent(
-            allOf( withId(R.id.rvBookList), withParent(withText(FIRST_CATEGORY_NAME))
-        )))).perform(click())
-
-        onView(allOf(withId(R.id.rvBookList), withParent(withText() FIRST_CATEGORY_NAME)))
-*//*
-
-       *//* onView(withId(R.id.rvBookList))
-            .perform(RecyclerViewActions.actionOnItemAtPosition<BookItemViewHolder>(0,
-                ViewActions.click()
-            ))*//*
-
-
-
-
- *//*       //for second book visibility
-        onView(withId(R.id.rvEbooks)).perform(RecyclerViewActions.scrollToPosition<BookListViewHolder>
-            (1))
-        Thread.sleep(600)
-        val secondInnerItem = onView(withRecyclerView(R.id.rvBookList).atPosition(1))
-             onView(allOf(
-             isDescendantOfA( allOf(withId(R.id.upperChildLayout), hasDescendant(withText(
-                 "Combined Print and E-Book Fiction")))),
-             isDescendantOfA(withId(R.id.rvBookList)), withId(R.id.tvBookName), withText(
-                 "THE WAGER")
-         )).check(matches(isDisplayed()))*//*
+      var v2=  onView(
+          allOf(
+              isDescendantOfA(
+                  allOf(
+                      withId(R.id.upperChildLayout), hasDescendant(
+                          withText(
+                              third_category
+                          )
+                      )
+                  )
+              ),
+              isDescendantOfA(withId(R.id.rvBookList)), withId(R.id.tvBookName), withText(
+                  third_book_name
+              )
+          )
+      )
 
 
-
-   *//*     onView(allOf(
-            isDescendantOfA( allOf(withId(R.id.upperChildLayout), hasDescendant(withText(
-                SECOND_CATEGORY_NAME)))),
-            isDescendantOfA(withId(R.id.rvBookList)), withId(R.id.tvBookName), withText(
-                SECOND_BOOK_NAME)
-        )).check(matches(isDisplayed()))*//*
+      v2.check(matches(isDisplayed()))
+      v2.perform(click())
 
 
-*//*
-        onView(allOf(withId(R.id.rvBookList), withParent(withRecyclerView( R.id.rvEbooks).atPosition(0)))).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(1))
-        val secondInnerItem = onView(withRecyclerView(R.id.rvBookList).atPosition(1))
-        secondInnerItem.check(matches(  allOf(withId(R.id.tvBookName),withText(FIRST_BOOK_NAME))))
-
-
-*//*
-
-*//*        onView(allOf(withId(R.id.rvBookList), withParent(withRecyclerView( R.id.rvEbooks).atPosition(0))))
-            .check(matches(
-                hasDescendant(
-                    allOf(withId(R.id.tvBookName),withText(FIRST_BOOK_NAME))
-                )))*//*
-
-
-      *//*  onView(withRecyclerView(R.id.rvBookList).atPosition(1)).check(matches(
-            allOf(withId(R.id.tvBookName),withText(FIRST_BOOK_NAME))
-        ))*//*
-
-      *//*  onView(withId(R.id.rvBookList))
-            .check(matches(
-                withViewAtPosition
-                    (1, hasDescendant(allOf(
-                    withId(R.id.tvBookAuthor), withText(FIRST_BOOK_AUTHOR)
-                )
-                ))))*//*
-
-      *//*  onView(withId(R.id.rvEbooks))
-            .check(matches(
-                withViewAtPosition
-                    (0, hasDescendant(allOf(
-                    withId(R.id.tvCategoryName), withText("Combined Print and E-Book Fiction")
-                )
-                )
-                )
-            ))*//*
-
-       // onView(withRecyclerView(R.id.inner_recycler_view).atPosition(1))
-
-
-        //onView(first<View>(withId(R.id.tvCategoryName))).check(matches(isDisplayed()))
-        //onView(first<View>(withId(R.id.rvBookList))).check(matches(isDisplayed()))
-        //onView(first<View>(withId(R.id.tvBookName))).check(matches(isDisplayed()))
-
-        *//*onView(withId(R.id.rvEbooks))
-            .check(matches(withViewAtPosition
-                (0, hasDescendant(allOf(
-                withId(R.id.tvCategoryName), isDisplayed())
-            ))))
-
-        onView(
-            allOf(withId(CHILD_RECYCLERVIEW_ID),
-            withParent(withRecyclerView(PARENT_RECYCLERVIEW_ID).atPosition(1)))).perform(actionOnItemAtPosition(0, click()));
-*//*
-    }*/
-
-
+  }
 
 
 

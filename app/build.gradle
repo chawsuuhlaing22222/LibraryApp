@@ -45,6 +45,11 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
+    //external dependency
+ /*   androidTestImplementation('com.adevinta.android:barista:4.2.0') {
+        exclude group: 'org.jetbrains.kotlin' // Only if you already use Kotlin in your project
+    }
+*/
     //local unit test
     testImplementation 'junit:junit:4.12'
     testImplementation("androidx.test:core-ktx:1.2.0")
