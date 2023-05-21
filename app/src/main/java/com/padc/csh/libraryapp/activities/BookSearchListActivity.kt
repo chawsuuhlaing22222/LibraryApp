@@ -28,7 +28,6 @@ import kotlinx.android.synthetic.main.activity_book_search_list.*
 import kotlinx.android.synthetic.main.activity_book_search_list.view.*
 import kotlinx.android.synthetic.main.view_pod_book_list.view.*
 import java.util.concurrent.TimeUnit
-
 class BookSearchListActivity : AppCompatActivity(),BookSearchView {
 
     lateinit var mBookSearchPresenter:BookSearchPresenter

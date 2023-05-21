@@ -38,7 +38,9 @@ import kotlinx.android.synthetic.main.activity_shelve_book_list.*
 import kotlinx.android.synthetic.main.activity_shelve_book_list.view.*
 import kotlinx.android.synthetic.main.dialog_book_content_menu.view.*
 import kotlinx.android.synthetic.main.dialog_more_for_booklist_shelve.view.*
+import kotlinx.android.synthetic.main.dialog_sort_view.view.*
 import kotlinx.android.synthetic.main.dialog_view_as.view.*
+import kotlinx.android.synthetic.main.dialog_view_as.view.rgRadioButtons
 import kotlinx.android.synthetic.main.fragment_your_book.*
 import kotlinx.android.synthetic.main.view_item_confirm_dialog.view.*
 import kotlinx.android.synthetic.main.view_pod_book_list.view.*
@@ -189,7 +191,7 @@ class ShelveBookListActivity : AppCompatActivity(),ShelfBookListView{
     }
 
     override fun onShowBookList(bookList: List<BookVO>) {
-        bookListViewPod.setUpData(shelfBookList)
+        bookListViewPod.setUpData(bookList)
     }
 
     override fun onShowCategoryList(bookList: List<BookVO>, categoryList: List<CategoryVO>) {
@@ -252,7 +254,51 @@ class ShelveBookListActivity : AppCompatActivity(),ShelfBookListView{
         dialog?.show()
     }
 
+    fun showSortByDialog(context: Context?){
 
+        var dialog= context?.let { BottomSheetDialog(it) }
+        var dialogView= LayoutInflater.from(context).inflate(R.layout.dialog_sort_view,null,false)
+        when(sort){
+            "author"->{
+                dialogView.rbAuthor.isChecked=true
+            }
+
+            "title"->{
+                dialogView.rbTitle.isChecked=true
+            }
+
+            "recent"->{
+                dialogView.rbRecentlyOpened.isChecked=true
+            }
+            else->{
+                dialogView.rbAuthor.isChecked=false
+                dialogView.rbTitle.isChecked=false
+                dialogView.rbRecentlyOpened.isChecked=false
+            }
+        }
+
+        dialogView.rbAuthor.setOnClickListener {
+            sort="author"
+            mShelfBookListPresenter.onSortByAuthor()
+            dialog?.cancel()
+        }
+
+        dialogView.rbTitle.setOnClickListener {
+            sort="title"
+            mShelfBookListPresenter.onSortByTitle()
+            dialog?.cancel()
+        }
+
+        dialogView.rbRecentlyOpened.setOnClickListener {
+            sort="recent"
+            mShelfBookListPresenter.onSortByRecentOpen()
+            dialog?.cancel()
+        }
+
+        dialog?.setContentView(dialogView)
+        dialog?.setCancelable(true)
+        dialog?.show()
+    }
 
 
 }

@@ -52,6 +52,8 @@ class ViewAsListAdapter(var delegate: BookDelegate):RecyclerView.Adapter<Recycle
             delegate.onTapBook(book)
         }
 
+
+
     }
 
     override fun getItemCount(): Int {

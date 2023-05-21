@@ -10,7 +10,6 @@ import com.padc.csh.libraryapp.data.vos.ShelveVO
 import com.padc.csh.libraryapp.mvp.views.ShelfBookListView
 import com.padc.csh.libraryapp.mvp.views.YourBookView
 import com.padc.csh.libraryapp.network.responses.BookResponse
-
 class ShelfBookListPresenterImpl:ViewModel(),ShelfBookListPresenter {
 
     //view
@@ -31,7 +30,7 @@ class ShelfBookListPresenterImpl:ViewModel(),ShelfBookListPresenter {
     }
 
     override fun onSortByAuthor() {
-        var ascendingBookList=bookList.sortedByDescending { bookVO ->bookVO.author  }
+        var ascendingBookList=bookList.sortedBy { bookVO ->bookVO.author  }
         mShelfBookListView?.onShowBookList(ascendingBookList)
     }
 
@@ -47,22 +46,25 @@ class ShelfBookListPresenterImpl:ViewModel(),ShelfBookListPresenter {
     }
 
     override fun onSortByRecentOpen() {
+
         if(!bookList.isNullOrEmpty()){
-            var booksRecent:MutableList<BookVO> = mutableListOf()
+
+            var booksRecent:ArrayList<BookVO> = arrayListOf()
             var blist= bookList.filter { bookVO ->  bookVO.recentOpened==true}.sortedByDescending { bookVO -> bookVO.id }
             if(!blist.isNullOrEmpty() ){
-                booksRecent =blist as MutableList<BookVO>
+                booksRecent.addAll(blist)
             }
 
-            var bookNotRecent:List<BookVO> = listOf()
-            var blistNotOpen=    bookList.filter { bookVO -> (bookVO.recentOpened ==true)}.sortedBy { bookVO -> bookVO.id }
+            var blistNotOpen=
+                bookList.filter { bookVO -> (bookVO.recentOpened ==false)}.sortedBy { bookVO -> bookVO.id }
             if(!blistNotOpen.isNullOrEmpty() ){
-                //bookNotRecent =blistNotOpen as MutableList<BookVO>
-                booksRecent.addAll(bookNotRecent)
-            }
 
+                booksRecent.addAll(blistNotOpen)
+
+            }
             mShelfBookListView?.onShowBookList(booksRecent)
         }
+
     }
 
     override fun onUiReady(owner: LifecycleOwner, bookLists: List<BookVO>) {
@@ -78,7 +80,7 @@ class ShelfBookListPresenterImpl:ViewModel(),ShelfBookListPresenter {
     }
 
     override fun onTapBook(book: BookVO) {
-
+       mShelfBookListView?.onTapBook(book)
     }
 
     override fun onMore(bookVO: BookVO) {

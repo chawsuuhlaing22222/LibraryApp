@@ -65,6 +65,7 @@ class BookItemAdapter(var delegate: BookDelegate) :
 
     fun setUPItemlist(list: List<BookVO>) {
         itemList = list
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {

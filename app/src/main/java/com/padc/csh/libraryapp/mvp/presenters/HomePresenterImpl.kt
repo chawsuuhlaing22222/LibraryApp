@@ -32,7 +32,7 @@ class HomePresenterImpl : ViewModel(), HomePresenter {
     }
 
     override fun onTapBook(book: BookVO) {
-
+            mHomeView?.navigateBookDetail(book)
     }
 
     override fun onMore(bookVO: BookVO) {

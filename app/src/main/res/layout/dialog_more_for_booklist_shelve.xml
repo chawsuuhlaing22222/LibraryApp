@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_marginBottom="@dimen/margin_medium_2"
     android:layout_height="wrap_content">
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvShelveTitleInBooklistShelveDialog"
@@ -35,6 +36,8 @@
         android:layout_height="wrap_content"/>
 
 
+
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvDeleteShelf"
         android:layout_below="@id/tvRenameShelf"
@@ -42,6 +45,7 @@
         android:layout_marginTop="@dimen/margin_medium_2"
         android:fontFamily="@font/inter_medium"
         android:drawablePadding="@dimen/margin_large_n"
+        android:layout_marginBottom="@dimen/margin_medium_2"
         android:drawableTint="@color/colorSecondaryText"
         android:drawableStart="@drawable/ic_baseline_delete_24"
         android:layout_marginLeft="@dimen/margin_medium_2"

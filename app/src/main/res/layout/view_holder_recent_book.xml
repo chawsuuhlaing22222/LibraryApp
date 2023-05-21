@@ -44,10 +44,11 @@
 
   <FrameLayout
       android:id="@+id/flSaveIconRecent"
-      android:layout_margin="5dp"
       android:background="@drawable/bg_earphone"
       android:layout_alignParentEnd="true"
       android:layout_alignParentBottom="true"
+      android:layout_marginBottom="@dimen/margin_medium_2"
+      android:layout_marginEnd="@dimen/margin_medium_2"
       android:layout_width="24dp"
       android:layout_height="24dp">
     <androidx.appcompat.widget.AppCompatImageView

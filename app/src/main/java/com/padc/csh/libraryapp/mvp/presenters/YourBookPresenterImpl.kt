@@ -34,7 +34,7 @@ class YourBookPresenterImpl:ViewModel(),YourBookPresenter {
 
     override fun onSortByAuthor() {
         //var ascendingBookList=bookList.sortedBy { bookVO ->bookVO.author  }
-        var ascendingBookList=bookList.sortedByDescending { bookVO ->bookVO.author  }
+        var ascendingBookList=bookList.sortedBy { bookVO ->bookVO.author  }
         mYourBookView?.onShowBookList(ascendingBookList)
     }
 
@@ -52,17 +52,23 @@ class YourBookPresenterImpl:ViewModel(),YourBookPresenter {
     override fun onSortByRecentOpen() {
 
         if(!bookList.isNullOrEmpty()){
-            var booksRecent:MutableList<BookVO> = mutableListOf()
+
+            var booksRecent:ArrayList<BookVO> = arrayListOf()
             var blist= bookList.filter { bookVO ->  bookVO.recentOpened==true}.sortedByDescending { bookVO -> bookVO.id }
             if(!blist.isNullOrEmpty() ){
-                booksRecent =blist as MutableList<BookVO>
+                booksRecent.addAll(blist)
             }
 
-            var bookNotRecent:List<BookVO> = listOf()
-            var blistNotOpen=    bookList.filter { bookVO -> (bookVO.recentOpened ==true)}.sortedBy { bookVO -> bookVO.id }
+            var blistNotOpen=
+                 bookList.filter { bookVO -> (bookVO.recentOpened ==false)}.sortedBy { bookVO -> bookVO.id }
             if(!blistNotOpen.isNullOrEmpty() ){
-                //bookNotRecent =blistNotOpen as MutableList<BookVO>
-                booksRecent.addAll(bookNotRecent)
+
+               /* blistNotOpen.forEach {
+                    booksRecent.add(it)
+                }*/
+
+                booksRecent.addAll(blistNotOpen)
+
             }
 
             mYourBookView?.onShowBookList(booksRecent)
@@ -83,7 +89,7 @@ class YourBookPresenterImpl:ViewModel(),YourBookPresenter {
     }
 
     override fun onTapBook(book: BookVO) {
-
+        mYourBookView?.onTapBook(book)
     }
 
     override fun onMore(bookVO: BookVO) {

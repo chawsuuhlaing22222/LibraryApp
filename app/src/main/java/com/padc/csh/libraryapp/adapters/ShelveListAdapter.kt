@@ -31,6 +31,8 @@ class ShelveListAdapter(var shelveDelegate: ShelveDelegate):RecyclerView.Adapter
         var shelf=itemList.get(position)
         if(shelf.img!=null){
            Glide.with(holder.itemView.context).load(shelf.img).into(holder.itemView.ivBookInShelve)
+        }else{
+            holder.itemView.ivBookInShelve.setImageResource(R.drawable.ic_baseline_insert_drive_file_24)
         }
         holder.itemView.tvShelfNameInShelfItem.setText(shelf.name.toString())
         shelf.shelfBookListVO?.bookList?.count()?.let {

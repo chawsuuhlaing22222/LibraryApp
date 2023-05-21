@@ -19,6 +19,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 import com.padc.csh.libraryapp.R
 import com.padc.csh.libraryapp.activities.AddToShelveActivity
+import com.padc.csh.libraryapp.activities.BookDetailActivity
 import com.padc.csh.libraryapp.activities.BookListByCategoryActivity
 import com.padc.csh.libraryapp.adapters.HomeVPAdapter
 import com.padc.csh.libraryapp.adapters.RecentBookBannerAdapter
@@ -123,12 +124,12 @@ class HomeFragment : Fragment(), HomeView {
         mRecentBookBannerAdapter.setNewData(list)
     }
 
-    override fun onNavigateBookDetail() {
-
+    override fun navigateBookDetail(bookVo: BookVO) {
+        var book=Gson().toJson(bookVo)
+        startActivity(context?.let { BookDetailActivity.newIntent(it,book) })
     }
 
-
-    override fun showErrorMsg(errorMsg: String) {
+     override fun showErrorMsg(errorMsg: String) {
         Toast.makeText(context, errorMsg, Toast.LENGTH_SHORT).show()
     }
 

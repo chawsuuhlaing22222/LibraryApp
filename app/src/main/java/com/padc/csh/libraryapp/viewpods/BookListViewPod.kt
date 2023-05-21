@@ -121,6 +121,7 @@ class BookListViewPod @JvmOverloads constructor(
         categoryVoList = mutableListOf()
         var categoryNameList: List<String> =
             bookItemList.map { bookVO -> bookVO.categoryName }.distinct() as List<String>
+
         categoryNameList.forEach {
             categoryVoList.add(CategoryVO(it, false))
         }
