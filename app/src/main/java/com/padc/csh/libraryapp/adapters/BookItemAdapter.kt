@@ -35,6 +35,14 @@ class BookItemAdapter(var delegate: BookDelegate) :
 
         }
 
+        if(book.bookImageWidth==0){
+            if(largeFlag){
+                holder.itemView.ivBookCoverImg.layoutParams.width = 329+200
+            }else{
+                holder.itemView.ivBookCoverImg.layoutParams.width = 329
+            }
+        }
+
         book.bookImageHeight?.let {
             if(largeFlag){
                 holder.itemView.ivBookCoverImg.layoutParams.height = it+200
@@ -42,6 +50,14 @@ class BookItemAdapter(var delegate: BookDelegate) :
                 holder.itemView.ivBookCoverImg.layoutParams.height = it
             }
 
+        }
+
+        if(book.bookImageHeight==0){
+            if(largeFlag){
+                holder.itemView.ivBookCoverImg.layoutParams.height = 700
+            }else{
+                holder.itemView.ivBookCoverImg.layoutParams.height = 500
+            }
         }
 
 

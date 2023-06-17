@@ -89,10 +89,10 @@ class HomeToLibTest {
         //vp banner is visible
         //onView(withId(R.id.viewPagerRecent)).check(matches(isDisplayed()))
 
-    }
+  //  }
 
-    @Test
-    fun b_secondBookClick() {
+  //  @Test
+  //  fun b_secondBookClick() {
 
         swipeupForBook()
         onView(
@@ -138,10 +138,10 @@ class HomeToLibTest {
                assertThat(itemCount, equalTo(2))
            }
        Thread.sleep(2000)*/
-    }
+  //  }
 
-    @Test
-    fun c_thirdBookClick() {
+ //   @Test
+ //   fun c_thirdBookClick() {
 
         swipeupForBook()
 
@@ -187,11 +187,11 @@ class HomeToLibTest {
                 assertThat(itemCount, equalTo(3))
             }*/
 
-    }
+   // }
 
 
-    @Test
-    fun d_swipdownToVpBanner_checkIsDisplayed() {
+ //   @Test
+//    fun d_swipdownToVpBanner_checkIsDisplayed() {
         Thread.sleep(1000L)
 
         onView(withId(R.id.homeFragment))
@@ -210,10 +210,10 @@ class HomeToLibTest {
             .perform(swipeDown())
         onView(withId(R.id.viewPagerRecent))
             .check(matches(isDisplayed()))
-    }
+  //  }
 
-    @Test
-    fun e_goToLib_checkBookIsDisplayed() {
+//    @Test
+ //   fun e_goToLib_checkBookIsDisplayed() {
         // Click  library tab
         onView(withId(R.id.nav_library)).perform(click())
         Thread.sleep(1000)

@@ -29,9 +29,19 @@ class RecentBookBannerAdapter(private val delegate: BookDelegate): RecyclerView.
             holder.itemView.ivBookCoverImgInRecent.layoutParams.width== it
         }
 
+        if(book.bookImageWidth==0){
+            holder.itemView.ivBookCoverImgInRecent.layoutParams.width= 650
+          //  holder.itemView.ivBookCoverImgInRecent.layoutParams.width= 331
+        }
+
         book.bookImageHeight?.let {
             holder.itemView.ivBookCoverImgInRecent.layoutParams.height =it
         }
+
+        if(book.bookImageHeight==0){
+            holder.itemView.ivBookCoverImgInRecent.layoutParams.height= 500
+        }
+
 
         holder.itemView.flAudioIconRecent.visibility=View.GONE
         holder.itemView.setOnClickListener {

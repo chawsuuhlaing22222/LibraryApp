@@ -13,7 +13,8 @@ import org.hamcrest.Matcher
 import java.util.concurrent.atomic.AtomicReference
 
 var sec_category="Middle Grade Paperback Monthly"
-var sec_book_name="THE ONE AND ONLY IVAN"
+//var sec_book_name="THE ONE AND ONLY IVAN"
+var sec_book_name="THE WILD ROBOT"
 var sec_book_author="Katherine Applegate."
 
 var third_category="Young Adult Paperback Monthly"
@@ -28,8 +29,10 @@ const val THIRD_CATEGORY_NAME= "Young Adult Paperback Monthly"
 const val FIRST_BOOK_NAME="HAPPY PLACE"
 const val FIRST_BOOK_AUTHOR="Emily Henry"
 
-const val SECOND_BOOK_NAME="THE ONE AND ONLY IVAN"
-const val SECOND_BOOK_AUTHOR="Katherine Applegate."
+//const val SECOND_BOOK_NAME="THE ONE AND ONLY IVAN"
+const val SECOND_BOOK_NAME="THE WILD ROBOT"
+//const val SECOND_BOOK_AUTHOR="Katherine Applegate."
+const val SECOND_BOOK_AUTHOR="Peter Brown"
 
 const val THIRD_BOOK_NAME="IF HE HAD BEEN WITH ME"
 const val THIRD_BOOK_AUTHOR="Laura Nowlin"
