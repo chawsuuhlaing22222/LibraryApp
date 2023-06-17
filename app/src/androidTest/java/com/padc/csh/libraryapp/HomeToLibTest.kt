@@ -55,7 +55,7 @@ class HomeToLibTest {
 
 
     @Test
-    fun a_firstBookClick() {
+    fun homeTestAndLibBookTest() {
 
         Thread.sleep(2000)
         onView(
